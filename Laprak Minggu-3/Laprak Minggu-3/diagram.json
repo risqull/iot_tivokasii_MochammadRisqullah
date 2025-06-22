@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -30.46,
+      "left": -149.9,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 9.9,
+      "left": 148.2,
+      "attrs": {}
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -131.26,
+      "left": -230.17,
+      "attrs": {
+        "i2cAddress": "0x3c"
+      }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -179.2,
+      "left": -66.4,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "dht1:VCC",
+      "esp:3V3",
+      "red",
+      [
+        "v9.6",
+        "h-230.4"
+      ]
+    ],
+    [
+      "dht1:GND",
+      "esp:GND.2",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "dht1:DATA",
+      "esp:19",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "ldr1:VCC",
+      "esp:3V3",
+      "blue",
+      [
+        "h28.8",
+        "v115.2",
+        "h-153.6"
+      ]
+    ],
+    [
+      "ldr1:GND",
+      "esp:GND.2",
+      "black",
+      [
+        "h19.2",
+        "v220.4"
+      ]
+    ],
+    [
+      "ldr1:AO",
+      "esp:34",
+      "gold",
+      [
+        "h9.6",
+        "v66.5",
+        "h-163.2"
+      ]
+    ],
+    [
+      "oled1:VCC",
+      "esp:3V3",
+      "gray",
+      [
+        "v-19.2",
+        "h96.15",
+        "v163.2",
+        "h38.4",
+        "v0",
+        "h19.2"
+      ]
+    ],
+    [
+      "oled1:GND",
+      "esp:GND.2",
+      "black",
+      [
+        "v-38.4",
+        "h-57.6",
+        "v316.8",
+        "h230.4"
+      ]
+    ],
+    [
+      "oled1:SDA",
+      "esp:21",
+      "green",
+      [
+        "v-28.8",
+        "h-105.53",
+        "v316.8",
+        "h201.6"
+      ]
+    ],
+    [
+      "oled1:SCL",
+      "esp:22",
+      "#8f4814",
+      [
+        "v0",
+        "h-124.5",
+        "v297.6",
+        "h259.2"
+      ]
+    ],
+    [
+      "dht1:SDA",
+      "esp:19",
+      "green",
+      [
+        "v124.8",
+        "h-259.1"
+      ]
+    ]
+  ],
+  "dependencies": {}
+}
