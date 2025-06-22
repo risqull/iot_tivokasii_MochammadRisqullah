@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -278.9, "left": 52.76, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -310.8,
+      "left": -92.2,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r5",
+      "top": -206.4,
+      "left": -86.95,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -260.42,
+      "left": 247.56,
+      "attrs": { "temperature": "58.7", "humidity": "77" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "led1:A", "r5:1", "yellow", [ "v14.8", "h6.87" ] ],
+    [ "r5:2", "esp:D26", "yellow", [ "v1.2", "h17.93", "v81.46" ] ],
+    [ "dht1:VCC", "esp:VIN", "limegreen", [ "v87.6", "h-228.22", "v-54.65" ] ],
+    [ "dht1:GND", "esp:GND.1", "red", [ "v93.06", "h-109.48", "v-76.5" ] ],
+    [ "dht1:SDA", "esp:D15", "cyan", [ "v26.39", "h-81.44", "v-19.67" ] ],
+    [ "led1:C", "esp:GND.2", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
